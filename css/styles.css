@@ -1179,3 +1179,386 @@ img {
         transition: none;
     }
 }
+
+
+/* =====================================================
+   17. ANIMACIONES FLORALES Y EFECTOS ESPECIALES
+   Diseño romántico y delicado
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   MOÑO: ENTRADA DESDE ARRIBA
+   ----------------------------------------------------- */
+
+@keyframes bowEntrance {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -45px) scale(0.85);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(-50%, 8px) scale(1.04);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+.bow-decoration {
+    transform-origin: center top;
+    animation: bowEntrance 1.8s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+
+/* -----------------------------------------------------
+   CRUZ: APARICIÓN CON ACERCAMIENTO
+   ----------------------------------------------------- */
+
+@keyframes crossEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.65);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.06);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cross-decoration {
+    animation: crossEntrance 1.5s ease-out 0.8s both;
+}
+
+
+/* -----------------------------------------------------
+   TÍTULO: APARICIÓN ELEGANTE
+   ----------------------------------------------------- */
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.event-title {
+    animation: titleReveal 1.6s ease-out 1.5s both;
+}
+
+
+/* -----------------------------------------------------
+   SUBTÍTULOS Y FRASES
+   ----------------------------------------------------- */
+
+@keyframes softAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    animation: softAppear 1.2s ease-out 1.2s both;
+}
+
+.bible-verse {
+    animation: softAppear 1.4s ease-out 2s both;
+}
+
+
+/* -----------------------------------------------------
+   ANGELITO: MOVIMIENTO FLOTANTE
+   ----------------------------------------------------- */
+
+@keyframes angelFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+}
+
+.angel-decoration {
+    animation:
+        softAppear 1.2s ease-out 0.5s both,
+        angelFloat 4s ease-in-out 2s infinite;
+}
+
+
+/* -----------------------------------------------------
+   NOMBRE: REVELADO PROGRESIVO
+   ----------------------------------------------------- */
+
+@keyframes nameReveal {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0);
+    }
+}
+
+.person-name {
+    animation: nameReveal 2s ease-out 0.8s both;
+}
+
+
+/* -----------------------------------------------------
+   INFORMACIÓN: APARICIÓN ESCALONADA AL DESPLAZARSE
+   ----------------------------------------------------- */
+
+.information-card.scroll-animation,
+.confirmation-section.scroll-animation {
+    animation: none;
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.information-card.scroll-animation.visible,
+.confirmation-section.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.information-card:nth-child(1).scroll-animation {
+    transition-delay: 0.1s;
+}
+
+.information-card:nth-child(2).scroll-animation {
+    transition-delay: 0.3s;
+}
+
+.information-card:nth-child(3).scroll-animation {
+    transition-delay: 0.5s;
+}
+
+
+/* -----------------------------------------------------
+   FLORES INFERIORES: ENTRADA ASCENDENTE
+   ----------------------------------------------------- */
+
+@keyframes flowersEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.decoration-bottom img {
+    animation: flowersEntrance 2s ease-out 1s both;
+}
+
+
+/* -----------------------------------------------------
+   BOTÓN: EFECTO DE VIDA
+   ----------------------------------------------------- */
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(184, 121, 128, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(184, 121, 128, 0.12);
+    }
+}
+
+.confirmation-button {
+    animation: buttonPulse 3s ease-in-out 3s infinite;
+}
+
+.confirmation-button:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 10px 25px rgba(184, 121, 128, 0.25);
+}
+
+
+/* -----------------------------------------------------
+   ENLACES DE UBICACIÓN
+   ----------------------------------------------------- */
+
+.location-link {
+    transition:
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.location-link:hover {
+    letter-spacing: 1px;
+}
+
+
+/* -----------------------------------------------------
+   MOVIMIENTO SUAVE DE LA INVITACIÓN
+   ----------------------------------------------------- */
+
+@keyframes invitationEntrance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.invitation {
+    animation: invitationEntrance 1.2s ease both;
+}
+
+
+/* -----------------------------------------------------
+   ACCESIBILIDAD: RESPETAR REDUCCIÓN DE MOVIMIENTO
+   ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bow-decoration,
+    .cross-decoration,
+    .event-title,
+    .subtitle,
+    .bible-verse,
+    .angel-decoration,
+    .person-name,
+    .decoration-bottom img,
+    .confirmation-button,
+    .invitation {
+        animation: none !important;
+    }
+
+    .information-card.scroll-animation,
+    .confirmation-section.scroll-animation {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
+
+/* =====================================================
+   18. LLUVIA CONTINUA DE FLORES
+   Efecto floral romántico y aleatorio
+   ===================================================== */
+
+/* CAPA DE FLORES */
+
+.flower-rain {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* FLORES INDIVIDUALES */
+
+.falling-flower {
+    position: absolute;
+
+    top: -100px;
+
+    width: var(--flower-size, 100px);
+    height: var(--flower-size, 100px);
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    will-change: transform;
+
+    animation:
+        flowerFall var(--fall-duration, 20s)
+        linear var(--fall-delay, 0s) forwards;
+}
+
+/* CAÍDA Y MOVIMIENTO ALEATORIO */
+
+@keyframes flowerFall {
+
+    0% {
+        transform:
+            translate3d(0, -70px, 0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translate3d(var(--drift-one, 25px), 25vh, 0)
+            rotate(100deg);
+    }
+
+    50% {
+        transform:
+            translate3d(var(--drift-two, -20px), 50vh, 0)
+            rotate(210deg);
+    }
+
+    75% {
+        transform:
+            translate3d(var(--drift-three, 30px), 75vh, 0)
+            rotate(300deg);
+    }
+
+    100% {
+        transform:
+            translate3d(var(--drift-four, -15px), var(--fall-distance, 1500px), 0)
+            rotate(420deg);
+    }
+
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .flower-rain {
+        display: none;
+    }
+
+}

@@ -219,3 +219,155 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("💗 Todas las interacciones están preparadas.");
 
 });
+
+/* =====================================================
+   LLUVIA ALEATORIA Y CONSTANTE DE FLORES
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const flowerContainer = document.getElementById("flowerRain");
+
+    if (!flowerContainer) return;
+
+    // Respetar las preferencias de accesibilidad.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+    }
+
+    // Imagen de la flor.
+    const FLOWER_IMAGE = "img/flores/flor-lluvia.png";
+
+    // Configuración de la lluvia.
+    const CONFIG = {
+        minInterval: 450,
+        maxInterval: 1100,
+
+        minSize: 14,
+        maxSize: 32,
+
+        minDuration: 12,
+        maxDuration: 23,
+
+        minOpacity: 0.12,
+        maxOpacity: 0.28,
+
+        maxFlowers: 35
+    };
+
+    // Generador aleatorio.
+    const random = (min, max) =>
+        Math.random() * (max - min) + min;
+
+    // Crear una flor.
+    function createFlower() {
+
+        if (flowerContainer.childElementCount >= CONFIG.maxFlowers) {
+            return;
+        }
+
+        const flower = document.createElement("img");
+
+        flower.src = FLOWER_IMAGE;
+        flower.alt = "";
+        flower.className = "falling-flower";
+        flower.draggable = false;
+
+        // Tamaño aleatorio.
+        const size = random(CONFIG.minSize, CONFIG.maxSize);
+
+        // Velocidad aleatoria.
+        const duration = random(
+            CONFIG.minDuration,
+            CONFIG.maxDuration
+        );
+
+        // Transparencia aleatoria.
+        const opacity = random(
+            CONFIG.minOpacity,
+            CONFIG.maxOpacity
+        );
+
+        // Posición horizontal.
+        const positionX = random(2, 96);
+
+        // Movimiento lateral aleatorio.
+        flower.style.left = `${positionX}%`;
+
+        flower.style.setProperty("--flower-size", `${size}px`);
+
+        flower.style.setProperty("--fall-duration", `${duration}s`);
+
+        flower.style.setProperty("--flower-opacity", opacity);
+
+        flower.style.setProperty(
+            "--fall-distance",
+            `${flowerContainer.scrollHeight + 100}px`
+        );
+
+        flower.style.setProperty(
+            "--drift-one",
+            `${random(-65, 65)}px`
+        );
+
+        flower.style.setProperty(
+            "--drift-two",
+            `${random(-80, 80)}px`
+        );
+
+        flower.style.setProperty(
+            "--drift-three",
+            `${random(-60, 60)}px`
+        );
+
+        flower.style.setProperty(
+            "--drift-four",
+            `${random(-90, 90)}px`
+        );
+
+        // Agregar la flor.
+        flowerContainer.appendChild(flower);
+
+        // Eliminarla al terminar su animación.
+        flower.addEventListener("animationend", () => {
+            flower.remove();
+        }, { once: true });
+
+        // Si la imagen no carga, eliminarla.
+        flower.addEventListener("error", () => {
+            flower.remove();
+        }, { once: true });
+
+    }
+
+    // Lluvia constante con intervalos aleatorios.
+    function startFlowerRain() {
+
+        createFlower();
+
+        const nextFlower = () => {
+
+            const interval = random(
+                CONFIG.minInterval,
+                CONFIG.maxInterval
+            );
+
+            window.setTimeout(() => {
+
+                createFlower();
+
+                nextFlower();
+
+            }, interval);
+
+        };
+
+        nextFlower();
+
+    }
+
+    startFlowerRain();
+
+    console.log("🌸 Lluvia floral activada correctamente.");
+
+});
