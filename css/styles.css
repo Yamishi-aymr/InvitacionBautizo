@@ -1,0 +1,1181 @@
+
+/* =====================================================
+   INVITACIÓN DIGITAL - BAUTIZO
+   Diseño floral romántico / Rosa crema
+   Responsive: computadora, tablet y celular
+   ===================================================== */
+
+
+/* =====================================================
+   1. VARIABLES
+   ===================================================== */
+
+:root {
+    --color-background: #FFF5F2;
+    --color-cream: #FCEBE7;
+
+    --color-pink: #EBC1C8;
+    --color-pink-light: #FCEBE7;
+    --color-pink-dark: #B87980;
+
+    --color-brown: #815331;
+    --color-brown-light: #A07859;
+
+    --color-text: #946C60;
+
+    --font-script: 'Allura', cursive;
+    --font-elegant: 'Cormorant Garamond', serif;
+    --font-modern: 'Montserrat', sans-serif;
+}
+
+
+/* =====================================================
+   2. RESET GENERAL
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-modern);
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   3. CONTENEDOR PRINCIPAL
+   ===================================================== */
+
+.invitation {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    max-width: 850px;
+
+    min-height: 1500px;
+
+    margin: 0 auto;
+
+    padding: 70px clamp(25px, 6vw, 65px) 200px;
+
+    background: var(--color-background);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   4. DECORACIONES FLORALES
+   ===================================================== */
+
+.decoration {
+    position: absolute;
+
+    left: 0;
+    width: 100%;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+.decoration img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* FLORES SUPERIORES */
+
+.decoration-top {
+    top: 0;
+    width: 100%;
+}
+
+.decoration-top img {
+    width: 100%;
+    height: auto;
+
+    max-height: none;
+
+    object-fit: contain;
+    object-position: top center;
+}
+
+
+/* FLORES INFERIORES */
+
+.decoration-bottom {
+    bottom: 0;
+    width: 100%;
+}
+
+.decoration-bottom img {
+    width: 100%;
+    height: auto;
+
+    max-height: none;
+
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+
+/* =====================================================
+   5. ENCABEZADO
+   ===================================================== */
+
+.header {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
+
+    /* Espacio amplio para el moño */
+    padding-top: 260px;
+}
+
+
+/* -----------------------------------------------------
+   MOÑO
+   ----------------------------------------------------- */
+
+.bow-decoration {
+    position: absolute;
+
+    top: 60px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 98%;
+    max-width: 750px;
+
+    z-index: 3;
+}
+
+.bow-decoration img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* -----------------------------------------------------
+   CRUZ
+   ----------------------------------------------------- */
+
+.cross-decoration {
+    position: relative;
+
+    width: 250px;
+    height: 310px;
+
+    margin: 30px auto 35px;
+
+    z-index: 3;
+}
+
+.cross-decoration img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* -----------------------------------------------------
+   SUBTÍTULO
+   ----------------------------------------------------- */
+
+.subtitle {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(19px, 3vw, 25px);
+
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    color: var(--color-brown);
+
+    margin-bottom: 15px;
+}
+
+
+/* -----------------------------------------------------
+   TÍTULO
+   ----------------------------------------------------- */
+
+.event-title {
+    font-family: var(--font-script);
+
+    font-size: clamp(75px, 11vw, 115px);
+
+    font-weight: 400;
+    line-height: 1.15;
+
+    color: var(--color-brown);
+
+    margin: 10px 0 25px;
+}
+
+
+/* -----------------------------------------------------
+   FRASE RELIGIOSA
+   ----------------------------------------------------- */
+
+.bible-verse {
+    width: 100%;
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    font-family: var(--font-modern);
+
+    font-size: clamp(16px, 2.7vw, 22px);
+
+    font-weight: 400;
+    line-height: 1.8;
+
+    text-transform: uppercase;
+
+    color: var(--color-pink-dark);
+}
+
+
+/* =====================================================
+   6. NOMBRE Y ANGELITO
+   ===================================================== */
+
+.person-section {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    margin-top: 65px;
+
+    text-align: center;
+}
+
+
+/* CONTENEDOR */
+
+.person-heading {
+    display: grid;
+
+    grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* ANGELITO */
+
+.angel-decoration {
+    width: 100%;
+    max-width: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.angel-decoration img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* NOMBRE */
+
+.person-name {
+    min-width: 0;
+
+    font-family: var(--font-script);
+
+    font-size: clamp(55px, 9vw, 100px);
+
+    font-weight: 400;
+    line-height: 1.08;
+
+    color: #A56D75;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+
+/* MENSAJE DE INVITACIÓN */
+
+.invitation-message {
+    width: 100%;
+    max-width: 550px;
+
+    margin: 22px auto 0;
+
+    font-size: clamp(14px, 2.3vw, 20px);
+
+    line-height: 1.7;
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    color: var(--color-pink-dark);
+}
+
+
+/* =====================================================
+   7. FECHA Y HORA
+   ===================================================== */
+
+.date-section {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(100px, 1fr)
+        minmax(0, 1.5fr);
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+    max-width: 650px;
+
+    margin: 55px auto 45px;
+
+    color: var(--color-brown);
+
+    text-align: center;
+}
+
+
+/* DÍA */
+
+.date-day {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(28px, 5vw, 48px);
+
+    font-weight: 500;
+}
+
+
+/* MES Y NÚMERO */
+
+.date-details {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 125px;
+
+    border-left: 7px solid var(--color-brown);
+    border-right: 7px solid var(--color-brown);
+}
+
+.month {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(27px, 5vw, 48px);
+
+    line-height: 1;
+}
+
+.day-number {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(48px, 8vw, 78px);
+
+    font-weight: 500;
+    line-height: 1;
+}
+
+
+/* HORA */
+
+.date-time {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(25px, 5vw, 43px);
+
+    font-weight: 500;
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   8. INFORMACIÓN DEL EVENTO
+   ===================================================== */
+
+.event-information {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 35px 35px;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 45px auto 0;
+
+    text-align: center;
+}
+
+
+/* TARJETAS */
+
+.information-card {
+    min-width: 0;
+
+    padding: 10px;
+}
+
+
+/* TÍTULOS */
+
+.information-card h3 {
+    font-family: var(--font-elegant);
+
+    font-size: clamp(27px, 4vw, 36px);
+
+    font-weight: 700;
+
+    color: var(--color-brown);
+
+    margin-bottom: 12px;
+}
+
+
+/* INFORMACIÓN */
+
+.information-card p {
+    font-size: clamp(14px, 2.2vw, 19px);
+
+    line-height: 1.8;
+    font-weight: 400;
+
+    color: var(--color-brown-light);
+
+    overflow-wrap: anywhere;
+}
+
+.information-card .location {
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   9. ENLACES DE UBICACIÓN
+   ===================================================== */
+
+.location-link {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding-bottom: 3px;
+
+    color: var(--color-pink-dark);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--color-pink);
+
+    transition: all 0.3s ease;
+}
+
+.location-link:hover {
+    color: var(--color-brown);
+}
+
+
+/* RECEPCIÓN */
+
+.reception {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   10. CONFIRMACIÓN
+   ===================================================== */
+
+.confirmation-section {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: 65px auto 0;
+
+    text-align: center;
+}
+
+
+/* TÍTULO */
+
+.confirmation-section h3 {
+    font-family: var(--font-script);
+
+    font-size: clamp(48px, 8vw, 65px);
+
+    font-weight: 400;
+
+    color: var(--color-pink-dark);
+}
+
+
+/* MENSAJE */
+
+.confirmation-section p {
+    font-size: clamp(14px, 2vw, 17px);
+
+    line-height: 1.8;
+
+    color: var(--color-brown-light);
+
+    margin: 15px 0 25px;
+}
+
+
+/* BOTÓN */
+
+.confirmation-button {
+    display: inline-block;
+
+    padding: 15px 35px;
+
+    border: 1px solid var(--color-pink-dark);
+    border-radius: 30px;
+
+    background: var(--color-pink-light);
+
+    color: var(--color-brown);
+
+    font-family: var(--font-modern);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.confirmation-button:hover {
+    background: var(--color-pink);
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(184, 121, 128, 0.2);
+}
+
+
+/* =====================================================
+   11. FOOTER
+   ===================================================== */
+
+.footer {
+    position: relative;
+    z-index: 1;
+
+    padding: 22px 15px;
+
+    text-align: center;
+
+    background: var(--color-cream);
+
+    color: var(--color-brown-light);
+
+    font-family: var(--font-elegant);
+
+    font-size: 19px;
+}
+
+
+/* =====================================================
+   12. ANIMACIONES
+   ===================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header,
+.person-section,
+.date-section,
+.event-information,
+.confirmation-section {
+    animation: fadeIn 0.9s ease both;
+}
+
+.person-section {
+    animation-delay: 0.15s;
+}
+
+.date-section {
+    animation-delay: 0.25s;
+}
+
+.event-information {
+    animation-delay: 0.35s;
+}
+
+.confirmation-section {
+    animation-delay: 0.45s;
+}
+
+
+/* ANIMACIONES AL DESPLAZARSE */
+
+.scroll-animation {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.scroll-animation.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   13. TABLETS
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .invitation {
+        min-height: 100vh;
+
+        padding: 35px 25px 160px;
+    }
+
+
+    /* ENCABEZADO */
+
+    .header {
+        padding-top: 205px;
+    }
+
+    .bow-decoration {
+        width: 95%;
+        max-width: 500px;
+
+        top: 25px;
+    }
+
+    .cross-decoration {
+        width: 120px;
+        height: 165px;
+
+        margin: 25px auto 28px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .event-title {
+        font-size: clamp(70px, 12vw, 90px);
+    }
+
+    .bible-verse {
+        max-width: 95%;
+
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+
+    /* ANGELITO Y NOMBRE */
+
+    .person-section {
+        margin-top: 50px;
+    }
+
+    .person-heading {
+        grid-template-columns:
+            minmax(100px, 140px)
+            minmax(0, 1fr);
+
+        gap: 8px;
+    }
+
+    .person-name {
+        font-size: clamp(48px, 9vw, 75px);
+    }
+
+    .invitation-message {
+        font-size: 15px;
+    }
+
+
+    /* FECHA */
+
+    .date-section {
+        margin: 45px auto;
+
+        gap: 8px;
+    }
+
+    .date-details {
+        min-height: 100px;
+
+        border-left-width: 6px;
+        border-right-width: 6px;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .event-information {
+        gap: 25px 12px;
+    }
+
+    .information-card {
+        padding: 6px;
+    }
+
+    .information-card h3 {
+        font-size: 28px;
+    }
+
+    .information-card p {
+        font-size: 14px;
+    }
+
+
+    /* CONFIRMACIÓN */
+
+    .confirmation-section {
+        margin-top: 50px;
+    }
+
+
+    /* FLORES */
+
+    .decoration-bottom img {
+        width: 100%;
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
+    }
+}
+
+
+/* =====================================================
+   14. CELULARES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+    .invitation {
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding: 25px 18px 145px;
+    }
+
+
+    /* ENCABEZADO */
+
+    .header {
+        padding-top: 175px;
+    }
+
+    .bow-decoration {
+        width: 100%;
+        max-width: 380px;
+
+        top: 20px;
+    }
+
+    .cross-decoration {
+        width: 105px;
+        height: 145px;
+
+        margin: 22px auto 25px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+
+        letter-spacing: 1px;
+    }
+
+    .event-title {
+        font-size: clamp(65px, 16vw, 78px);
+
+        line-height: 1.15;
+
+        margin: 12px 0 20px;
+    }
+
+    .bible-verse {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    /* ANGELITO Y NOMBRE */
+
+    .person-section {
+        margin-top: 45px;
+    }
+
+    .person-heading {
+        grid-template-columns:
+            minmax(75px, 28%)
+            minmax(0, 1fr);
+
+        gap: 5px;
+    }
+
+    .angel-decoration {
+        width: 100%;
+
+        max-width: 115px;
+    }
+
+    .person-name {
+        font-size: clamp(42px, 10vw, 54px);
+
+        line-height: 1.12;
+
+        overflow-wrap: break-word;
+    }
+
+    .invitation-message {
+        font-size: 12px;
+
+        line-height: 1.8;
+
+        margin-top: 18px;
+    }
+
+
+    /* FECHA */
+
+    .date-section {
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(75px, 1fr)
+            minmax(0, 1.2fr);
+
+        gap: 5px;
+
+        margin: 40px auto;
+    }
+
+    .date-day {
+        font-size: clamp(21px, 5.8vw, 27px);
+    }
+
+    .date-details {
+        min-height: 85px;
+
+        border-left-width: 5px;
+        border-right-width: 5px;
+    }
+
+    .month {
+        font-size: 24px;
+    }
+
+    .day-number {
+        font-size: 45px;
+    }
+
+    .date-time {
+        font-size: clamp(19px, 5vw, 25px);
+
+        white-space: normal;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .event-information {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        margin-top: 35px;
+    }
+
+    .information-card {
+        width: 100%;
+
+        max-width: 350px;
+
+        margin: 0 auto;
+
+        padding: 5px 10px;
+    }
+
+    .information-card h3 {
+        font-size: 28px;
+
+        margin-bottom: 7px;
+    }
+
+    .information-card p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+    .location-link {
+        font-size: 12px;
+    }
+
+    .reception {
+        grid-column: auto;
+    }
+
+
+    /* CONFIRMACIÓN */
+
+    .confirmation-section {
+        margin-top: 45px;
+
+        padding-bottom: 10px;
+    }
+
+    .confirmation-section h3 {
+        font-size: 50px;
+    }
+
+    .confirmation-section p {
+        font-size: 13px;
+
+        margin: 12px 0 20px;
+    }
+
+    .confirmation-button {
+        padding: 13px 25px;
+
+        font-size: 12px;
+    }
+
+
+    /* FLORES INFERIORES */
+
+    .decoration-bottom img {
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 18px 10px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   15. CELULARES MUY PEQUEÑOS
+   ===================================================== */
+
+@media (max-width: 350px) {
+
+    .invitation {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+
+    /* ENCABEZADO */
+
+    .header {
+        padding-top: 155px;
+    }
+
+    .bow-decoration {
+        width: 100%;
+        max-width: 310px;
+
+        top: 15px;
+    }
+
+    .cross-decoration {
+        width: 95px;
+        height: 130px;
+
+        margin: 18px auto 22px;
+    }
+
+    .event-title {
+        font-size: 62px;
+    }
+
+
+    /* NOMBRE */
+
+    .person-heading {
+        grid-template-columns: 70px minmax(0, 1fr);
+
+        gap: 3px;
+    }
+
+    .person-name {
+        font-size: 40px;
+    }
+
+
+    /* FECHA */
+
+    .date-section {
+        grid-template-columns: 0.8fr 0.9fr 1.1fr;
+
+        gap: 3px;
+    }
+
+    .date-day {
+        font-size: 20px;
+    }
+
+    .month {
+        font-size: 21px;
+    }
+
+    .day-number {
+        font-size: 40px;
+    }
+
+    .date-time {
+        font-size: 18px;
+    }
+
+
+    /* INFORMACIÓN */
+
+    .information-card h3 {
+        font-size: 26px;
+    }
+
+    .information-card p {
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   16. ACCESIBILIDAD
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+    .scroll-animation {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
