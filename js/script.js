@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Número de WhatsApp con código de país.
         // Ejemplo México: 521234567890
-        whatsappNumber: "774474206",
+        whatsappNumber: "7774474206",
 
         // Mensaje automático para WhatsApp.
         whatsappMessage:
