@@ -1,9 +1,3 @@
-
-/* =====================================================
-   INVITACIÓN DIGITAL - BAUTIZO
-   JavaScript: Interacciones y funcionalidades
-   ===================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
     console.log("🌸 Invitación de bautizo iniciada correctamente");
@@ -15,9 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const CONFIG = {
 
-        // Número de WhatsApp con código de país.
-        // Ejemplo México: 521234567890
-        whatsappNumber: "7774474206",
+        whatsappNumber: "7711362516",
 
         // Mensaje automático para WhatsApp.
         whatsappMessage:

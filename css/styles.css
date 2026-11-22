@@ -378,7 +378,7 @@ img {
     grid-template-columns:
         minmax(0, 1fr)
         minmax(100px, 1fr)
-        minmax(0, 1.5fr);
+        minmax(0, 1fr);
 
     align-items: center;
 
@@ -430,27 +430,16 @@ img {
     line-height: 1;
 }
 
-.day-number {
-    font-family: var(--font-elegant);
-
-    font-size: clamp(48px, 8vw, 78px);
-
-    font-weight: 500;
-    line-height: 1;
-}
-
 
 /* HORA */
 
 .date-time {
     font-family: var(--font-elegant);
 
-    font-size: clamp(25px, 5vw, 43px);
+    font-size: clamp(27px, 5vw, 48px);
 
     font-weight: 500;
-    line-height: 1.2;
-
-    white-space: nowrap;
+    line-height: 1;
 }
 
 
@@ -1472,10 +1461,8 @@ img {
 
 }
 
-/* =====================================================
-   18. LLUVIA CONTINUA DE FLORES
-   Efecto floral romántico y aleatorio
-   ===================================================== */
+/* LLUVIA CONTINUA DE FLORES */
+  
 
 /* CAPA DE FLORES */
 
