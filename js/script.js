@@ -212,8 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
 /* =====================================================
    LLUVIA ALEATORIA Y CONSTANTE DE FLORES
+   Velocidad uniforme y adaptativa
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -222,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!flowerContainer) return;
 
-    // Respetar las preferencias de accesibilidad.
+    // Respetar preferencias de accesibilidad.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
     }
@@ -230,26 +232,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Imagen de la flor.
     const FLOWER_IMAGE = "img/flores/flor-lluvia.png";
 
-    // Configuración de la lluvia.
+    // Configuración general.
     const CONFIG = {
-        minInterval: 450,
+
+        minInterval: 500,
         maxInterval: 1100,
 
-        minSize: 14,
-        maxSize: 32,
+        minSize: 18,
+        maxSize: 34,
 
-        minDuration: 12,
-        maxDuration: 23,
+        // Velocidad de caída en píxeles por segundo.
+        minSpeed: 65,
+        maxSpeed: 85,
 
         minOpacity: 0.12,
-        maxOpacity: 0.28,
+        maxOpacity: 0.23,
 
         maxFlowers: 35
+
     };
 
-    // Generador aleatorio.
+
+    // Número aleatorio.
     const random = (min, max) =>
         Math.random() * (max - min) + min;
+
+
+    // Obtener la altura real de la invitación.
+    function getInvitationHeight() {
+
+        const invitation = flowerContainer.parentElement;
+
+        return Math.max(
+            invitation.scrollHeight,
+            flowerContainer.scrollHeight,
+            invitation.clientHeight
+        );
+
+    }
+
 
     // Crear una flor.
     function createFlower() {
@@ -265,46 +286,97 @@ document.addEventListener("DOMContentLoaded", () => {
         flower.className = "falling-flower";
         flower.draggable = false;
 
-        // Tamaño aleatorio.
-        const size = random(CONFIG.minSize, CONFIG.maxSize);
 
-        // Velocidad aleatoria.
-        const duration = random(
-            CONFIG.minDuration,
-            CONFIG.maxDuration
+        // Altura total de la invitación.
+        const height = getInvitationHeight();
+
+        // Distancia total de caída.
+        const distance = height + 200;
+
+
+        // Tamaño aleatorio.
+        const size = random(
+            CONFIG.minSize,
+            CONFIG.maxSize
         );
 
-        // Transparencia aleatoria.
+
+        // Velocidad constante para cada flor.
+        const speed = random(
+            CONFIG.minSpeed,
+            CONFIG.maxSpeed
+        );
+
+
+        // Duración calculada según la distancia.
+        const duration = distance / speed;
+
+
+        // Opacidad aleatoria.
         const opacity = random(
             CONFIG.minOpacity,
             CONFIG.maxOpacity
         );
 
+
         // Posición horizontal.
         const positionX = random(2, 96);
 
-        // Movimiento lateral aleatorio.
         flower.style.left = `${positionX}%`;
 
-        flower.style.setProperty("--flower-size", `${size}px`);
 
-        flower.style.setProperty("--fall-duration", `${duration}s`);
-
-        flower.style.setProperty("--flower-opacity", opacity);
-
+        // Tamaño y transparencia.
         flower.style.setProperty(
-            "--fall-distance",
-            `${flowerContainer.scrollHeight + 100}px`
+            "--flower-size",
+            `${size}px`
         );
 
         flower.style.setProperty(
+            "--flower-opacity",
+            opacity
+        );
+
+
+        // Distancia total de caída.
+        flower.style.setProperty(
+            "--fall-distance",
+            `${distance}px`
+        );
+
+
+        // Puntos intermedios proporcionales.
+        flower.style.setProperty(
+            "--fall-quarter-one",
+            `${distance * 0.25}px`
+        );
+
+        flower.style.setProperty(
+            "--fall-quarter-two",
+            `${distance * 0.50}px`
+        );
+
+        flower.style.setProperty(
+            "--fall-quarter-three",
+            `${distance * 0.75}px`
+        );
+
+
+        // Duración calculada.
+        flower.style.setProperty(
+            "--fall-duration",
+            `${duration}s`
+        );
+
+
+        // Movimiento horizontal aleatorio.
+        flower.style.setProperty(
             "--drift-one",
-            `${random(-65, 65)}px`
+            `${random(-55, 55)}px`
         );
 
         flower.style.setProperty(
             "--drift-two",
-            `${random(-80, 80)}px`
+            `${random(-75, 75)}px`
         );
 
         flower.style.setProperty(
@@ -317,27 +389,31 @@ document.addEventListener("DOMContentLoaded", () => {
             `${random(-90, 90)}px`
         );
 
-        // Agregar la flor.
+
+        // Agregar al contenedor.
         flowerContainer.appendChild(flower);
 
-        // Eliminarla al terminar su animación.
+
+        // Eliminar cuando termine la animación.
         flower.addEventListener("animationend", () => {
             flower.remove();
         }, { once: true });
 
-        // Si la imagen no carga, eliminarla.
+
+        // Eliminar si falla la imagen.
         flower.addEventListener("error", () => {
             flower.remove();
         }, { once: true });
 
     }
 
-    // Lluvia constante con intervalos aleatorios.
+
+    // Lluvia continua.
     function startFlowerRain() {
 
         createFlower();
 
-        const nextFlower = () => {
+        function nextFlower() {
 
             const interval = random(
                 CONFIG.minInterval,
@@ -352,14 +428,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }, interval);
 
-        };
+        }
 
         nextFlower();
 
     }
 
+
     startFlowerRain();
 
-    console.log("🌸 Lluvia floral activada correctamente.");
+    console.log("🌸 Lluvia floral con velocidad uniforme activada.");
 
 });

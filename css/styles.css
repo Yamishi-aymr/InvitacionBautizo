@@ -402,7 +402,7 @@ img {
 
     font-size: clamp(28px, 5vw, 48px);
 
-    font-weight: 500;
+    font-weight: 800;
 }
 
 
@@ -438,7 +438,7 @@ img {
 
     font-size: clamp(27px, 5vw, 48px);
 
-    font-weight: 500;
+    font-weight: 800;
     line-height: 1;
 }
 
@@ -1462,7 +1462,7 @@ img {
 }
 
 /* LLUVIA CONTINUA DE FLORES */
-  
+
 
 /* CAPA DE FLORES */
 
@@ -1477,9 +1477,11 @@ img {
     overflow: hidden;
 
     pointer-events: none;
+    user-select: none;
 
     z-index: 0;
 }
+
 
 /* FLORES INDIVIDUALES */
 
@@ -1488,57 +1490,77 @@ img {
 
     top: -100px;
 
-    width: var(--flower-size, 100px);
-    height: var(--flower-size, 100px);
+    width: var(--flower-size, 30px);
+    height: var(--flower-size, 30px);
 
     object-fit: contain;
 
-    pointer-events: none;
+    opacity: var(--flower-opacity, 0.20);
 
+    pointer-events: none;
     user-select: none;
 
     will-change: transform;
 
-    animation:
-        flowerFall var(--fall-duration, 20s)
-        linear var(--fall-delay, 0s) forwards;
+    animation-name: flowerFall;
+    animation-duration: var(--fall-duration, 30s);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
-/* CAÍDA Y MOVIMIENTO ALEATORIO */
+
+/* CAÍDA CON VELOCIDAD CONSTANTE */
 
 @keyframes flowerFall {
 
     0% {
         transform:
-            translate3d(0, -70px, 0)
+            translate3d(0, 0, 0)
             rotate(0deg);
     }
 
     25% {
         transform:
-            translate3d(var(--drift-one, 25px), 25vh, 0)
+            translate3d(
+                var(--drift-one, 20px),
+                var(--fall-quarter-one, 300px),
+                0
+            )
             rotate(100deg);
     }
 
     50% {
         transform:
-            translate3d(var(--drift-two, -20px), 50vh, 0)
-            rotate(210deg);
+            translate3d(
+                var(--drift-two, -20px),
+                var(--fall-quarter-two, 600px),
+                0
+            )
+            rotate(200deg);
     }
 
     75% {
         transform:
-            translate3d(var(--drift-three, 30px), 75vh, 0)
+            translate3d(
+                var(--drift-three, 30px),
+                var(--fall-quarter-three, 900px),
+                0
+            )
             rotate(300deg);
     }
 
     100% {
         transform:
-            translate3d(var(--drift-four, -15px), var(--fall-distance, 1500px), 0)
+            translate3d(
+                var(--drift-four, -15px),
+                var(--fall-distance, 1200px),
+                0
+            )
             rotate(420deg);
     }
 
 }
+
 
 /* ACCESIBILIDAD */
 
