@@ -943,7 +943,7 @@ img {
     }
 
     .date-day {
-        font-size: clamp(21px, 5.8vw, 27px);
+        font-size: 24px;
     }
 
     .date-details {
@@ -962,7 +962,7 @@ img {
     }
 
     .date-time {
-        font-size: clamp(19px, 5vw, 25px);
+        font-size: 24px;
 
         white-space: normal;
     }
